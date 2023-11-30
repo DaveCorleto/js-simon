@@ -21,30 +21,32 @@
 
 let numberRandom = [];
 
+// Riferimento all'elemento con id "newgame"
 let start = document.getElementById("newgame");
-start = document.addEventListener('click', function(){
 
-    // Ciclo per la generazione dei numeri random 
-
-    for (let i = 0; i < 5; i++ ){ 
-    let nbr = Math.floor(Math.random()*100) + 1;
-    numberRandom.push(nbr)
-
-    // console.log (nbr)
+// Aggiungo un EventListener per il click
+start.addEventListener('click', function() {
+    // Ciclo per la generazione dei numeri random
+    for (let i = 0; i < 5; i++) {
+        let nbr = Math.floor(Math.random() * 100) + 1;
+        numberRandom.push(nbr);
     }
 
-    console.log ("questo è l'array che vedrà l'utente", numberRandom)
+    console.log("Questo è l'array che vedrà l'utente", numberRandom);
 
-    // ottengo un riferimento all'id a cui voglio inviari i numeri 
-
+    // Riferimento all'elemento con id "numerimostrati"
     let numeriInPagina = document.getElementById("numerimostrati");
 
-    // inserisco in pagina i numeri dell'array 
+    // Inserisci in pagina i numeri dell'array
+    numeriInPagina.innerHTML = numberRandom.join(",");
 
-    numeriInPagina.innerHTML = numberRandom.join (",");
-
+    // Dopo 30 secondi...
+    setTimeout(function() {
+        // Pulisci l'elemento numeriInPagina
+        numeriInPagina.innerHTML = "";
+        numberRandom = []; // Pulisci anche l'array
+    }, 30000); // 30000 millisecondi corrispondono a 30 secondi
 });
-
 
 
 
