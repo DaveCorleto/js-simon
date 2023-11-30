@@ -15,23 +15,36 @@
 
 // genero un array con 5 numeri casuali -->
 
+// Voglio che tutto parta quando l'utente clicca sul button "play" 
+
+
+
 let numberRandom = [];
 
-for (let i = 0; i < 5; i++ ){ 
-let nbr = Math.floor(Math.random()*100) + 1;
-numberRandom.push(nbr)
+let start = document.getElementById("newgame");
+start = document.addEventListener('click', function(){
 
-// console.log (nbr)
-}
+    // Ciclo per la generazione dei numeri random 
 
-console.log ("questo è l'array che vedrà l'utente", numberRandom)
+    for (let i = 0; i < 5; i++ ){ 
+    let nbr = Math.floor(Math.random()*100) + 1;
+    numberRandom.push(nbr)
 
-// ottengo un riferimento all'id a cui voglio inviari i numeri 
+    // console.log (nbr)
+    }
 
-let numeriInPagina = document.getElementById("numerimostrati");
+    console.log ("questo è l'array che vedrà l'utente", numberRandom)
 
-// inserisco in pagina i numeri dell'array 
+    // ottengo un riferimento all'id a cui voglio inviari i numeri 
 
-numeriInPagina.innerHTML = numberRandom.join (",");
+    let numeriInPagina = document.getElementById("numerimostrati");
+
+    // inserisco in pagina i numeri dell'array 
+
+    numeriInPagina.innerHTML = numberRandom.join (",");
+
+});
+
+
 
 
